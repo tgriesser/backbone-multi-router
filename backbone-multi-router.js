@@ -32,15 +32,14 @@
 
   Backbone.history.loadUrl = function(fragmentOverride) {
     var fragment = this.fragment = this.getFragment(fragmentOverride);
-    var matched = _.map(this.handlers, function(handlers) {
+    return _.any(_.map(this.handlers, function(handlers) {
       return _.any(handlers, function(handler) {
         if (handler.route.test(fragment)) {
           handler.callback(fragment);
           return true;
         }
       });
-    });
-    return _.any(matched);
+    }));
   };
 
 })(this.Backbone, this._);
