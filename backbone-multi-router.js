@@ -6,7 +6,24 @@
 // Author:  Tim Griesser
 // License: MIT
 // -----------------------------------------
-(function(Backbone, _) {
+(function(root, factory) {
+
+  // Set up Backbone appropriately for the environment. Start with AMD.
+  if (typeof define === 'function' && define.amd) {
+
+    define(['backbone', 'underscore'], factory);
+
+    // Next for Node.js or CommonJS. jQuery may not be needed as a module.
+  } else if (typeof exports !== 'undefined') {
+
+    factory(require('backbone'), require('underscore'));
+
+    // Finally, as a browser global.
+  } else {
+    factory(root.Backbone, root._);
+  }
+
+}(this, function(Backbone, _) {
 
   Backbone.history.handlers = {};
 
@@ -42,4 +59,6 @@
     }));
   };
 
-})(this.Backbone, this._);
+  return Backbone.Router;
+
+}));

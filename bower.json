@@ -1,0 +1,22 @@
+{
+  "name": "backbone-multi-router",
+  "main": "backbone-multi-router.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/tgriesser/backbone-multi-router",
+  "authors": [
+    "Tim Griesser"
+  ],
+  "description": "Execute multiple routers in a Backbone app",
+  "keywords": [
+    "backbone",
+    "router"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
